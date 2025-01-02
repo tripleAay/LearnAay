@@ -1,16 +1,8 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
-  const navigate = useNavigate(); 
-
-  const handleSignupNavigate=()=>{
-    navigate('./Signup')
-  };
-
-  const handleSigninNavigate=()=>{
-    navigate('./Signin')
-  };
+ 
 
   return (
     <header className="bg-gradient-to-r from-white via-gray-50 to-white shadow-lg fixed top-0 w-full z-10">
@@ -46,12 +38,16 @@ const Header = () => {
 
         {/* User Action Buttons */}
         <div className="flex items-center space-x-4">
-          <button onClick={handleSigninNavigate} className="border border-blue-600 text-blue-600 px-4 py-2 rounded-md text-sm hover:bg-blue-50 transition">
+          <Link to="/signin">
+          <button  className="border border-blue-600 text-blue-600 px-4 py-2 rounded-md text-sm hover:bg-blue-50 transition">
             Login
           </button>
-          <button onClick={handleSignupNavigate} className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">
+          </Link>
+          <Link to="/signup">
+          <button  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition">
             Sign Up
           </button>
+          </Link>
         </div>
       </div>
 

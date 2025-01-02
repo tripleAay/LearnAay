@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
 import Dashboard from './pages/Dashboard';
+import DashboardHeader from './components/DashboardHeader'
 
 
 function App() {
@@ -24,25 +25,45 @@ function MainApp() {
   const isSigninPage = location.pathname === './signin';
   const isSignupPage = location.pathname === './signup';
   const isDashboard = location.pathname === './dashboard';
+  
   return (
     <div>
-      {!isSignupPage && <Header />}
+      
+      
       <Routes>
         <Route path='/' element={<>
+          <Header/>
           <HeroSection />
           <Course />
           <Qualities />
+          
           <Footer />
-        </>} />;
+          
+        </>} />
 
 
-        <Route path='/signup' element={<SignupPage />} />;
-        <Route path='/signin' element={<SigninPage />} />;
-        <Route path='./dashboard' element={<Dashboard/>}/>;
+        <Route path='/signup' element={<>
+          <Header/>
+          <SignupPage />
+        </>} />
+        <Route path='/signin' element={
+           <>
+           <Header/>
+           <SigninPage/>
+           </>} />
+
+        <Route path='/dashboard' element={
+         <>
+          <DashboardHeader/>
+          <Dashboard/>
+         </>
+        }/>
       </Routes>
 
     </div>
   );
 }
+
+
 
 export default App;
