@@ -47,4 +47,4 @@ const Qualities = () => {
   );
 };
 
-export default Qualities;
+export default Qualities; 

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Footer from "../components/Footer";
+import CourseTile from "../components/CourseTile"
 
 function Dashboard() {
   // State to track the active tab
@@ -26,11 +28,10 @@ function Dashboard() {
           {["home", "learning", "certification"].map((tab) => (
             <button
               key={tab}
-              className={`text-sm font-medium capitalize ${
-                activeTab === tab
+              className={`text-sm font-medium capitalize ${activeTab === tab
                   ? "text-blue-600 border-b-2 border-blue-600"
                   : "text-gray-600 hover:text-blue-600"
-              }`}
+                }`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}
@@ -41,6 +42,7 @@ function Dashboard() {
 
       {/* Dynamic Content Rendering */}
       <main className="p-6">{renderContent()}</main>
+      <Footer />
     </div>
   );
 }
@@ -49,8 +51,62 @@ function Dashboard() {
 function HomeContent() {
   return (
     <div className="text-center">
-      <h1 className="text-2xl font-bold">Welcome to the Home Page!</h1>
-      <p className="text-gray-600">Here is the dashboard overview.</p>
+      <h1 className="text-2xl font-bold">Happy Learning!</h1>
+      <p className="text-gray-600 mb-4">Here is your dashboard overview.</p>
+
+      <div className="grid grid-cols-1 gap-6">
+        {/* General Learning */}
+        <div className="bg-blue-100 p-6 rounded-lg shadow-md hover:shadow-lg transition block ">
+          <h2 className="text-xl font-bold text-blue-700 mb-4">General Learning</h2>
+          <div className="flex flex-nowrap gap-4">
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+
+          </div>
+        </div>
+
+        {/* Science */}
+        <div className="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <h2 className="text-xl font-bold text-green-700">Science</h2>
+          <p className="text-gray-600 mt-2">Add content here...</p>
+          <div className="flex flex-nowrap gap-4">
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+
+          </div>
+        </div>
+
+        {/* Art */}
+        <div className="bg-yellow-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <h2 className="text-xl font-bold text-yellow-700">Art</h2>
+          <p className="text-gray-600 mt-2">Add content here...</p>
+          <div className="flex flex-nowrap gap-4">
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+
+          </div>
+        </div>
+
+        {/* Technology */}
+        <div className="bg-red-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <h2 className="text-xl font-bold text-red-700">Technology</h2>
+          <p className="text-gray-600 mt-2">Add content here...</p>
+          <div className="flex flex-nowrap gap-4">
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+          <CourseTile/>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
